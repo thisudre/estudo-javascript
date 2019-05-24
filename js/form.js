@@ -4,9 +4,10 @@ btnAdicionar.addEventListener('click', function(){
     event.preventDefault()
 
     var form = document.querySelector('#form-adiciona')
-    paciente = obterPacienteDoForm(form)
-    erros = validaPaciente(paciente)
+    var paciente = obterPacienteDoForm(form)
     var pacienteTr = montaTr(paciente)
+    var tabela = document.querySelector('#tabela-pacientes')
+    var erros = validaPaciente(paciente)
 
     if(erros.length > 0)
     {
@@ -14,7 +15,6 @@ btnAdicionar.addEventListener('click', function(){
         return
     }
     
-    var tabela = document.querySelector('#tabela-pacientes')
     tabela.appendChild(pacienteTr)
     form.reset()
 
